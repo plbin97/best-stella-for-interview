@@ -10,7 +10,10 @@ type NavButtonPropsType = {
 function NavButton(props: NavButtonPropsType) {
   const [navToPage, setNavToPage] = useState(false)
   return (
-    <Button color={props.inThisPage ? 'error' : 'inherit'} sx={{ flexGrow: 1 }} onClick={() => {
+    <Button color={props.inThisPage ? 'error' : 'inherit'} sx={{
+      flexGrow: 1,
+      fontWeight: props.inThisPage ? 700 : 400
+    }} onClick={() => {
       if (!props.inThisPage) {
         setNavToPage(true)
       }
