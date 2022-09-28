@@ -4,6 +4,9 @@ import React from "react";
 type InlineInputPropsType = {
   label: string,
   id: string,
+  onChange(e: any): void,
+  isErr: boolean,
+  errMsg: string
 }
 
 function InlineInput(props: InlineInputPropsType) {
@@ -13,7 +16,7 @@ function InlineInput(props: InlineInputPropsType) {
       display: 'flex',
       marginTop: 2,
     }}>
-      <TextField fullWidth label={props.label} variant='standard'/>
+      <TextField fullWidth error={props.isErr} helperText={props.errMsg} label={props.label} onChange={props.onChange} variant='standard'/>
     </Box>
   )
 }

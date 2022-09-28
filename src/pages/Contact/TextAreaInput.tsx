@@ -3,7 +3,10 @@ import {Box, TextField} from "@mui/material";
 type TextAreaInputPropsType = {
   id: string,
   label: string,
-  numOfLines: number
+  numOfLines: number,
+  onChange(e: any): void,
+  isErr: boolean,
+  errMsg: string
 }
 
 function TextAreaInput(props: TextAreaInputPropsType) {
@@ -14,6 +17,9 @@ function TextAreaInput(props: TextAreaInputPropsType) {
         label={props.label}
         multiline
         fullWidth
+        error={props.isErr}
+        helperText={props.errMsg}
+        onChange={props.onChange}
         rows={props.numOfLines}
       />
     </Box>
